@@ -1,0 +1,12 @@
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), method: :post) do |f| %>
+  <div class="field">
+    <%= f.label :otp_attempt %><br />
+    <%= f.text_field :otp_attempt %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Verify" %>
+  </div>
+<% end %>

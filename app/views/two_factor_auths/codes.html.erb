@@ -1,0 +1,9 @@
+<h1>Recovery Codes</h1>
+
+<ul>
+  <% @codes.each do |code| %>
+    <li><%= code %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Proceed', root_path %>

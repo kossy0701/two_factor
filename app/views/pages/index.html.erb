@@ -1,0 +1,16 @@
+<h1>Pages#index</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+
+<div>
+  <% if user_signed_in? %>
+    <% if current_user.otp_required_for_login %>
+      <%= button_to "Disable 2FA", two_factor_auth_path, method: :delete %>
+    <% else %>
+      <%= button_to "Enable 2FA", new_two_factor_auth_path, method: :get %>
+    <% end %>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+<% end %>

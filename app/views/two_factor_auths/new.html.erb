@@ -1,0 +1,22 @@
+<h1>Enable 2FA</h1>
+
+<% if @error %>
+  <div><%= @error %></div>
+<% end %>
+
+<div><%= raw @qr_code %></div>
+
+<div>
+  <p>Account : <%= current_user.email %></p>
+  <p>Key : <%= current_user.otp_secret.scan(/.{4}/).join(' ') %></p>
+  <p>Time Based : Yes</p>
+</div>
+
+<%= form_tag two_factor_auth_path do %>
+  <div class="field">
+    <%= label_tag :otp_attempt %><br />
+    <%= text_field_tag :otp_attempt %>
+  </div>
+
+  <%= submit_tag :submit %>
+<% end %>
